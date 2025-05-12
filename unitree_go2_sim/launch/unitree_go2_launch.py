@@ -206,7 +206,7 @@ def generate_launch_description():
         arguments=[
             # Gazebo to ROS
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
-            '/imu/data@sensor_msgs/msg/Imu@gz.msgs.IMU',
+            '/imu@sensor_msgs/msg/Imu@gz.msgs.IMU',
             '/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
             '/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model',
             '/velodyne_points/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked',
@@ -218,6 +218,9 @@ def generate_launch_description():
             '/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
             '/joint_group_effort_controller/joint_trajectory@trajectory_msgs/msg/JointTrajectory]gz.msgs.JointTrajectory',
         ],
+        remappings=[
+            ('/imu', '/imu/data')
+        ]
     )
     
     # Use spawner nodes directly to handle the configuration step. (load → configure → activate)
