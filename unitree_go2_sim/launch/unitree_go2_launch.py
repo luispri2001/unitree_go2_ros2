@@ -282,7 +282,8 @@ def generate_launch_description():
             declare_world_init_z,
             declare_world_init_heading,
             declare_description_path, 
-            
+            base_to_footprint_ekf,
+            footprint_to_odom_ekf,
             # Gazebo and robot nodes first
             gz_sim,
             robot_state_publisher_node,
